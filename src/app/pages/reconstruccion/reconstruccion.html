@@ -1,0 +1,121 @@
+<!-- ===== Intro ===== -->
+<app-page-hero eyebrow="Guerrini Reconstrucción" title="Reconstrucción de neumáticos" highlight="Reconstrucción">
+    Una planta propia con más de 1500 neumáticos reconstruidos por mes y retiro y entrega puerta a
+    puerta en todo el país.
+</app-page-hero>
+
+<!-- ===== Info + formulario ===== -->
+<section class="relative -mt-10 sm:-mt-12">
+    <div class="mx-auto grid max-w-7xl gap-6 px-3 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:items-start">
+        <article
+            class="rounded-3xl bg-white p-8 shadow-lg shadow-guerrini-black/5 ring-1 ring-guerrini-black/5 sm:p-10">
+            <img [src]="logo" alt="Guerrini Reconstrucción" class="h-11 w-auto sm:h-12" />
+
+            <h2 class="mt-8 text-2xl font-bold tracking-tight text-guerrini-black sm:text-3xl">Reconstrucción</h2>
+            <span aria-hidden="true" class="mt-3 block h-1 w-12 rounded-full bg-guerrini-red"></span>
+
+            <p class="mt-6 leading-relaxed text-guerrini-gray">
+                La planta de reconstrucción de Guerrini Neumáticos nació junto con la empresa. En el año 2016
+                se realizaron importantes ampliaciones y se incorporaron nuevas y modernas maquinarias que
+                ofrecen una mayor capacidad de trabajo, siguiendo los altos estándares de calidad que nos
+                caracterizan y con una producción superior a los 1500 neumáticos mensuales.
+            </p>
+            <p class="mt-4 leading-relaxed text-guerrini-gray">
+                Para garantizar el traslado directo de los neumáticos desde cualquier punto del país hasta
+                nuestras instalaciones, disponemos de servicio Puerta a Puerta con una flota de vehículos
+                propia que garantizan el traslado bajo entregas programadas que van desde las 24 a las 48
+                horas para mayor comodidad de nuestros clientes.
+            </p>
+
+            <ul class="mt-8 grid gap-3 sm:grid-cols-3">
+                @for (item of highlights; track item.label) {
+                <li class="rounded-2xl bg-guerrini-gray-light p-4 ring-1 ring-guerrini-black/5">
+                    <span class="block text-lg font-bold leading-tight text-guerrini-red">{{ item.value }}</span>
+                    <span class="mt-1 block text-xs font-medium uppercase tracking-wide text-guerrini-gray">{{
+                        item.label }}</span>
+                </li>
+                }
+            </ul>
+        </article>
+
+        <app-quote-form class="lg:sticky lg:top-28" (submitted)="onQuote($event)" />
+    </div>
+</section>
+
+<!-- ===== ¿Por qué elegirnos? ===== -->
+<!-- clip-path: corte en "V" arriba, como la web original -->
+<section
+    class="relative mt-24 bg-linear-to-b from-guerrini-gray to-guerrini-dark pb-24 pt-36 [clip-path:polygon(0_0,50%_72px,100%_0,100%_100%,0_100%)] sm:pt-40">
+    <div class="mx-auto max-w-6xl px-3 sm:px-6">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">¿Por qué elegirnos?</h2>
+            <span aria-hidden="true" class="mx-auto mt-4 block h-1 w-12 rounded-full bg-guerrini-red"></span>
+        </div>
+
+        <ul class="mt-14 grid gap-5 md:grid-cols-3">
+            @for (reason of reasons; track reason.title) {
+            <li
+                class="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10">
+                <span
+                    class="flex size-14 items-center justify-center rounded-2xl bg-guerrini-red/15 text-guerrini-red ring-1 ring-guerrini-red/30 transition-colors duration-300 group-hover:bg-guerrini-red group-hover:text-white">
+                    <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                        aria-hidden="true">
+                        @switch (reason.icon) {
+                        @case ('check') {
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        }
+                        @case ('tools') {
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                        }
+                        @case ('award') {
+                        <circle cx="12" cy="9" r="5.25" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.75 13.25 7.5 21l4.5-2.5 4.5 2.5-1.25-7.75" />
+                        }
+                        }
+                    </svg>
+                </span>
+
+                <h3 class="mt-6 text-lg font-bold text-white">{{ reason.title }}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-white/70">{{ reason.text }}</p>
+            </li>
+            }
+        </ul>
+    </div>
+</section>
+
+<!-- ===== Certificaciones ===== -->
+<section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-3 sm:px-6">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-guerrini-black sm:text-4xl">Nuestras Certificaciones</h2>
+            <span aria-hidden="true" class="mx-auto mt-4 block h-1 w-12 rounded-full bg-guerrini-red"></span>
+            <p class="mt-4 text-guerrini-gray">Taller homologado por las principales marcas del mercado.</p>
+        </div>
+
+        <ul class="mt-12 grid gap-6 sm:grid-cols-3">
+            @for (cert of certifications; track cert.brand) {
+            <li>
+                <figure
+                    class="group rounded-3xl bg-white p-3 shadow-sm ring-1 ring-guerrini-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="relative aspect-[256/181] overflow-hidden rounded-2xl">
+                        <img [ngSrc]="cert.image"
+                            [alt]="'Certificación taller homologado ' + cert.brand + ' ' + cert.year" fill
+                            class="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <figcaption class="flex items-center justify-between px-3 pb-2 pt-4">
+                        <span class="text-sm font-bold uppercase tracking-wide text-guerrini-black">{{ cert.brand
+                            }}</span>
+                        <span
+                            class="rounded-full bg-guerrini-red/10 px-3 py-1 text-[11px] font-bold tracking-wider text-guerrini-red">
+                            {{ cert.year }}
+                        </span>
+                    </figcaption>
+                </figure>
+            </li>
+            }
+        </ul>
+    </div>
+</section>

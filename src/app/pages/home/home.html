@@ -1,0 +1,107 @@
+<!-- ===== Intro ===== -->
+<!-- -mt-32 / pt-44: el fondo oscuro sube por detrás del header flotante -->
+<section class="relative -mt-32 overflow-hidden bg-guerrini-dark pb-40 pt-44 sm:pb-52">
+    <!-- Brillo rojo muy suave de fondo -->
+    <div aria-hidden="true"
+        class="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-guerrini-red/15 blur-3xl">
+    </div>
+
+    <div class="relative mx-auto max-w-5xl px-6">
+        <span
+            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 backdrop-blur">
+            <span class="size-1.5 rounded-full bg-guerrini-red"></span>
+            +60 años de trayectoria
+        </span>
+
+        <h1 class="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+            Líderes en Importación y Distribución de
+            <span class="text-guerrini-red">Neumáticos</span> en Argentina
+        </h1>
+
+        <p class="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg">
+            Con más de 60 años de trayectoria, en Guerrini Neumáticos S.A. conectamos al país con las
+            marcas más destacadas a nivel mundial. Como importadores y distribuidores exclusivos de
+            <strong class="font-semibold text-white">
+                Kumho Tire, Triangle, Firemax, Zetum, Doublestar, Marshal, Kpatos, Speedway y Diamondback.
+            </strong>
+        </p>
+    </div>
+</section>
+
+<!-- ===== Carrusel de imágenes (monta sobre la intro) ===== -->
+<section class="relative -mt-28 sm:-mt-40">
+    <div class="mx-auto max-w-7xl px-3 sm:px-6">
+        <app-carousel-img [images]="slides" label="Instalaciones de Guerrini Neumáticos" />
+    </div>
+</section>
+
+<!-- ===== Nuestras marcas ===== -->
+<section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-3 sm:px-6">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-guerrini-red sm:text-4xl">Nuestras Marcas</h2>
+            <span aria-hidden="true" class="mx-auto mt-4 block h-1 w-12 rounded-full bg-guerrini-red/80"></span>
+        </div>
+
+        <div class="mt-12 rounded-3xl bg-white py-8 shadow-sm ring-1 ring-guerrini-black/5 sm:py-10">
+            <app-brands-carousel [brands]="brands" />
+        </div>
+    </div>
+</section>
+
+<!-- ===== Sobre la empresa / Otros servicios ===== -->
+<section class="pb-24">
+    <div class="mx-auto grid max-w-6xl gap-6 px-3 sm:px-6 md:grid-cols-2">
+        <article
+            class="relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-guerrini-black/5 transition-shadow hover:shadow-lg sm:p-10">
+            <span aria-hidden="true" class="absolute inset-y-10 left-0 w-1 rounded-r-full bg-guerrini-red"></span>
+
+            <h2 class="text-2xl font-bold tracking-wide text-guerrini-red">Sobre la Empresa</h2>
+            <p class="mt-2 font-semibold text-guerrini-black">
+                Más de 60 años impulsando el camino de los argentinos.
+            </p>
+            <p class="mt-4 leading-relaxed text-guerrini-gray">
+                Somos Guerrini Neumáticos S.A., importadores exclusivos de marcas globales como Kumho Tire,
+                Triangle, Firemax, Zetum, Doublestar, Marshal, Kpatos, Speedway y Diamondback. Con centros de
+                distribución en puntos clave del país y una planta de reconstrucción propia, combinamos
+                trayectoria y tecnología para ofrecer la red de servicios y neumáticos más sólida del mercado.
+            </p>
+
+            <a routerLink="/nosotros"
+                class="group mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-guerrini-red">
+                Conocé más
+                <svg class="size-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </article>
+
+        <article
+            class="relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-guerrini-black/5 transition-shadow hover:shadow-lg sm:p-10">
+            <span aria-hidden="true" class="absolute inset-y-10 left-0 w-1 rounded-r-full bg-guerrini-red"></span>
+
+            <h2 class="text-2xl font-bold tracking-wide text-guerrini-red">Otros Servicios</h2>
+            <p class="mt-4 leading-relaxed text-guerrini-gray">
+                Poseemos una de las plantas de reconstrucción de neumáticos más importantes de Argentina, con
+                un final de trabajo homologado por marcas tales como Kumho, Goodyear y Pirelli. Brindamos
+                servicio de retiro y entrega en cualquier punto del país.
+            </p>
+            <p class="mt-4 leading-relaxed text-guerrini-gray">
+                El negocio minorista asienta sus bases en nuestra cadena de tiendas
+                <strong class="font-semibold text-guerrini-black">Red AutoShop</strong>, la cual ofrece al
+                cliente la posibilidad de adquirir sus neumáticos y todos los anexos relacionados con
+                accesorios para el automotor y servicios de mantenimiento.
+            </p>
+
+            <a routerLink="/reconstruccion"
+                class="group mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-guerrini-red">
+                Ver servicios
+                <svg class="size-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </article>
+    </div>
+</section>

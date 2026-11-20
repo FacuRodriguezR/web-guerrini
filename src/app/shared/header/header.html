@@ -1,0 +1,78 @@
+<header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
+    <div class="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border backdrop-blur-xl backdrop-saturate-150 transition-all duration-300"
+        [class.border-white/50]="!scrolled()" [class.bg-white/60]="!scrolled()" [class.shadow-md]="!scrolled()"
+        [class.border-guerrini-gray/15]="scrolled()" [class.bg-white/85]="scrolled()" [class.shadow-xl]="scrolled()">
+        <!-- Franja roja: la firma de la marca -->
+
+
+        <nav class="flex items-center justify-between gap-4 px-4 transition-all duration-300 sm:px-6"
+            [class.py-4]="!scrolled()" [class.py-2.5]="scrolled()" aria-label="Navegación principal">
+            <!-- Logo (reemplazá por <img src="/logo-guerrini.svg" alt="Guerrini Neumáticos" class="h-9 w-auto"> cuando tengas el asset) -->
+            <a routerLink="/" class="group flex shrink-0 flex-col leading-none" (click)="closeMenu()">
+                <img src="/assets/images/icons/logo.png" alt="Guerrini Neumáticos"
+                    class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+            </a>
+
+            <!-- Links desktop -->
+            <ul class="hidden items-center gap-1 lg:flex">
+                @for (item of navItems; track item.path) {
+                <li>
+                    <a [routerLink]="item.path" routerLinkActive="!text-guerrini-red after:!scale-x-100"
+                        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+                        class="relative rounded-lg px-3 py-2 text-sm font-semibold uppercase tracking-wide text-guerrini-black/80 transition-colors hover:text-guerrini-red after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-guerrini-red after:transition-transform after:duration-300 hover:after:scale-x-100">
+                        {{ item.label }}
+                    </a>
+                </li>
+                }
+            </ul>
+
+            <div class="flex items-center gap-2">
+                <!-- CTA -->
+                <a routerLink="/cotizar"
+                    class="hidden rounded-xl bg-guerrini-red px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-md shadow-guerrini-red/30 transition-all hover:-translate-y-0.5 hover:bg-guerrini-red-dark hover:shadow-lg hover:shadow-guerrini-red/40 active:translate-y-0 sm:inline-flex">
+                    Consulta BCRA
+                </a>
+
+                <!-- Botón menú mobile -->
+                <button type="button"
+                    class="inline-flex size-10 items-center justify-center rounded-xl text-guerrini-black transition-colors hover:bg-guerrini-black/5 lg:hidden"
+                    [attr.aria-expanded]="menuOpen()" aria-controls="mobile-menu"
+                    [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()">
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        @if (menuOpen()) {
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        } @else {
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h10" />
+                        }
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú mobile -->
+        <div id="mobile-menu" class="grid transition-[grid-template-rows] duration-300 ease-out lg:hidden"
+            [class.grid-rows-[1fr]]="menuOpen()" [class.grid-rows-[0fr]]="!menuOpen()">
+            <div class="overflow-hidden">
+                <ul class="flex flex-col gap-1 border-t border-guerrini-gray/15 px-4 pb-4 pt-3">
+                    @for (item of navItems; track item.path) {
+                    <li>
+                        <a [routerLink]="item.path" routerLinkActive="!bg-guerrini-red/10 !text-guerrini-red"
+                            [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+                            class="block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-wide text-guerrini-black/80 transition-colors hover:bg-guerrini-black/5 hover:text-guerrini-red"
+                            (click)="closeMenu()">
+                            {{ item.label }}
+                        </a>
+                    </li>
+                    }
+                    <li class="pt-2 sm:hidden">
+                        <a routerLink="/cotizar"
+                            class="block rounded-xl bg-guerrini-red px-4 py-3 text-center text-sm font-bold uppercase tracking-wide text-white shadow-md shadow-guerrini-red/30 hover:bg-guerrini-red-dark"
+                            (click)="closeMenu()">
+                            Consulta BCRA
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

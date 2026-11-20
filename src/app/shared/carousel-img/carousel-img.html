@@ -1,0 +1,49 @@
+<div class="group relative overflow-hidden rounded-3xl bg-guerrini-black shadow-2xl shadow-guerrini-black/25 ring-1 ring-white/10"
+    role="region" aria-roledescription="carrusel" [attr.aria-label]="label()" (mouseenter)="pause()"
+    (mouseleave)="resume()" (focusin)="pause()" (focusout)="resume()" (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)" (keydown.arrowRight)="next()" (keydown.arrowLeft)="prev()">
+    <!-- Pista -->
+    <div class="flex h-[260px] transition-transform duration-700 ease-out motion-reduce:transition-none sm:h-[420px] lg:h-[540px]"
+        [style.transform]="'translateX(-' + current() * 100 + '%)'">
+        @for (img of images(); track img.src; let i = $index) {
+        <div class="relative h-full w-full shrink-0" role="group" aria-roledescription="diapositiva"
+            [attr.aria-label]="i + 1 + ' de ' + total()" [attr.aria-hidden]="i !== current()">
+            <img [ngSrc]="img.src" [alt]="img.alt" fill [priority]="i === 0" class="object-cover" />
+        </div>
+        }
+    </div>
+
+    <!-- Degradé inferior para que se lean los controles -->
+    <div aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-guerrini-black/70 to-transparent">
+    </div>
+
+    @if (total() > 1) {
+    <!-- Flechas (glass) -->
+    <button type="button"
+        class="absolute left-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-guerrini-red hover:bg-guerrini-red focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
+        aria-label="Imagen anterior" (click)="prev()">
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    <button type="button"
+        class="absolute right-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-guerrini-red hover:bg-guerrini-red focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
+        aria-label="Imagen siguiente" (click)="next()">
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+
+    <!-- Indicadores -->
+    <div
+        class="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-md">
+        @for (img of images(); track img.src; let i = $index) {
+        <button type="button" class="h-2 rounded-full transition-all duration-300" [class.w-8]="i === current()"
+            [class.bg-guerrini-red]="i === current()" [class.w-2]="i !== current()"
+            [class.bg-white/60]="i !== current()" [attr.aria-label]="'Ir a la imagen ' + (i + 1)"
+            [attr.aria-current]="i === current()" (click)="goTo(i)"></button>
+        }
+    </div>
+    }
+</div>

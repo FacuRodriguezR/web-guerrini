@@ -1,0 +1,16 @@
+<div
+    class="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+    <div class="flex w-max animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+        @for (copy of copies; track copy) {
+        <ul class="flex shrink-0 items-center gap-14 pr-14 sm:gap-20 sm:pr-20"
+            [attr.aria-hidden]="copy === 1 ? 'true' : null">
+            @for (brand of brands(); track brand.name) {
+            <li class="flex h-16 shrink-0 items-center">
+                <img [src]="brand.logo" [alt]="copy === 0 ? brand.name : ''" loading="lazy" decoding="async"
+                    class="h-9 w-auto max-w-[170px] object-contain opacity-60 grayscale transition duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0 sm:h-11" />
+            </li>
+            }
+        </ul>
+        }
+    </div>
+</div>

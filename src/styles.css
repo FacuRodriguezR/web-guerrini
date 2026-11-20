@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css — Tailwind v4 (Angular 20) */
+@import 'tailwindcss';
+
+@theme {
+  /* Tipografía de la web original (cargala en index.html, ver abajo) */
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+
+  /* Paleta Guerrini: rojo, gris, negro y blanco */
+  --color-guerrini-red: #e30613;
+  --color-guerrini-red-dark: #b8050f;
+  --color-guerrini-black: #111111;
+  --color-guerrini-dark: #1d1f22; /* fondo de la intro */
+  --color-guerrini-gray: #5f6368;
+  --color-guerrini-gray-light: #f2f2f2;
+  --color-guerrini-white: #ffffff;
+
+  /* Cinta de marcas */
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/*
+  index.html → dentro de <head>:
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+*/

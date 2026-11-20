@@ -1,0 +1,94 @@
+<!-- ===== Intro ===== -->
+<app-page-hero eyebrow="Productos" title="Neumáticos para cada camino" highlight="cada camino">
+    Somos importadores exclusivos y distribuidores en toda la Argentina de marcas reconocidas a nivel
+    mundial.
+</app-page-hero>
+
+<!-- ===== Importadores exclusivos ===== -->
+<section class="relative -mt-10 sm:-mt-12">
+    <div class="mx-auto max-w-6xl px-3 sm:px-6">
+        <ul class="grid gap-5 sm:grid-cols-3">
+            @for (brand of exclusiveBrands; track brand.name) {
+            <li
+                class="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-lg shadow-guerrini-black/5 ring-1 ring-guerrini-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-guerrini-black/10">
+                <div class="flex h-40 items-center justify-center px-10 sm:h-44">
+                    <img [src]="brand.logo" [alt]="brand.name" loading="lazy" decoding="async"
+                        class="max-h-16 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105 sm:max-h-20" />
+                </div>
+
+                <div class="flex items-center justify-between border-t border-guerrini-black/5 px-6 py-4">
+                    <span class="text-sm font-bold uppercase tracking-wide text-guerrini-black">
+                        {{ brand.name }}
+                    </span>
+                    <span
+                        class="rounded-full bg-guerrini-red/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-guerrini-red">
+                        Exclusivo
+                    </span>
+                </div>
+
+                <!-- Línea roja que crece en hover -->
+                <span aria-hidden="true"
+                    class="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-guerrini-red transition-transform duration-300 group-hover:scale-x-100"></span>
+            </li>
+            }
+        </ul>
+
+        <p class="mt-10 text-center text-lg font-bold text-guerrini-black sm:text-xl">
+            Somos importadores exclusivos y distribuidores en
+            <span class="text-guerrini-red">toda la Argentina</span>
+        </p>
+    </div>
+</section>
+
+<!-- ===== Equipamiento original ===== -->
+<section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-3 sm:px-6">
+        <div class="relative overflow-hidden rounded-3xl bg-guerrini-dark px-6 py-12 sm:px-12 sm:py-16 lg:px-16">
+            <div aria-hidden="true"
+                class="pointer-events-none absolute -bottom-40 -left-40 size-[480px] rounded-full bg-guerrini-red/15 blur-3xl">
+            </div>
+
+            <div class="relative grid items-center gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-[0.25em] text-guerrini-red">
+                        Calidad OE
+                    </span>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Equipamiento Original
+                    </h2>
+                    <span aria-hidden="true" class="mt-4 block h-1 w-12 rounded-full bg-guerrini-red"></span>
+                    <p class="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
+                        Nuestras marcas forman parte del equipamiento original de importantes automotrices en
+                        todo el mundo.
+                    </p>
+                </div>
+
+                <!-- La imagen tiene fondo blanco: va sobre una tarjeta blanca tipo vidrio -->
+                <div class="rounded-2xl border border-white/20 bg-white/10 p-2 backdrop-blur-md">
+                    <div class="relative aspect-[16/7] overflow-hidden rounded-xl bg-white">
+                        <img [ngSrc]="oemImage"
+                            alt="Automotrices que equipan nuestras marcas de origen: BMW, Chevrolet, Chrysler, Dacia, Dodge, Fiat, Hyundai, Jeep, Kia, Mercedes-Benz, Mini, Mitsubishi, Seat, Smart, SsangYong y Volkswagen"
+                            fill class="object-contain p-4 sm:p-6" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="pb-24">
+    <div class="mx-auto max-w-6xl px-3 sm:px-6">
+        <div
+            class="flex flex-col items-center justify-between gap-6 rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-guerrini-black/5 sm:flex-row sm:p-10 sm:text-left">
+            <div>
+                <h2 class="text-xl font-bold text-guerrini-black sm:text-2xl">¿Buscás un neumático?</h2>
+                <p class="mt-1 text-guerrini-gray">Consultá con nuestro equipo o acercate a la Red AutoShop.</p>
+            </div>
+            <a routerLink="/contacto"
+                class="shrink-0 rounded-xl bg-guerrini-red px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md shadow-guerrini-red/30 transition-all hover:-translate-y-0.5 hover:bg-guerrini-red-dark hover:shadow-lg">
+                Contactanos
+            </a>
+        </div>
+    </div>
+</section>
