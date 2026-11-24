@@ -21,14 +21,14 @@
     @if (total() > 1) {
     <!-- Flechas (glass) -->
     <button type="button"
-        class="absolute left-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-guerrini-red hover:bg-guerrini-red focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
+        class="absolute left-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-accent hover:bg-accent focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
         aria-label="Imagen anterior" (click)="prev()">
         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
     </button>
     <button type="button"
-        class="absolute right-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-guerrini-red hover:bg-guerrini-red focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
+        class="absolute right-4 top-1/2 hidden size-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:border-accent hover:bg-accent focus-visible:opacity-100 group-hover:opacity-100 sm:flex"
         aria-label="Imagen siguiente" (click)="next()">
         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -40,9 +40,9 @@
         class="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-md">
         @for (img of images(); track img.src; let i = $index) {
         <button type="button" class="h-2 rounded-full transition-all duration-300" [class.w-8]="i === current()"
-            [class.bg-guerrini-red]="i === current()" [class.w-2]="i !== current()"
-            [class.bg-white/60]="i !== current()" [attr.aria-label]="'Ir a la imagen ' + (i + 1)"
-            [attr.aria-current]="i === current()" (click)="goTo(i)"></button>
+            [class.bg-accent]="i === current()" [class.w-2]="i !== current()" [class.bg-white/60]="i !== current()"
+            [attr.aria-label]="'Ir a la imagen ' + (i + 1)" [attr.aria-current]="i === current()"
+            (click)="goTo(i)"></button>
         }
     </div>
     }

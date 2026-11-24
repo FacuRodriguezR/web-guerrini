@@ -1,1 +1,113 @@
-<p>contacto works!</p>,
+<!-- ===== Intro ===== -->
+<app-page-hero eyebrow="Contacto" title="Comunicate con Nosotros" highlight="Nosotros">
+    Nuestros asesores están disponibles para brindarte la mejor atención y ofrecerte una experiencia
+    de compra de primer nivel.
+</app-page-hero>
+
+<!-- ===== Canales de atención ===== -->
+<section class="relative -mt-10 sm:-mt-12">
+    <div class="mx-auto grid max-w-5xl gap-5 px-3 sm:px-6 md:grid-cols-2">
+        @for (channel of channels; track channel.title) {
+        <article
+            class="group relative flex flex-col overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-guerrini-black/5 ring-1 ring-guerrini-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-guerrini-black/10 sm:p-10">
+            <span
+                class="flex size-14 items-center justify-center rounded-2xl bg-guerrini-red/10 text-guerrini-red ring-1 ring-guerrini-red/20 transition-colors duration-300 group-hover:bg-guerrini-red group-hover:text-white">
+                <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                    aria-hidden="true">
+                    @switch (channel.icon) {
+                    @case ('truck') {
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                    }
+                    @case ('store') {
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+                    }
+                    }
+                </svg>
+            </span>
+
+            <h2 class="mt-6 text-2xl font-bold tracking-tight text-guerrini-red">{{ channel.title }}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-guerrini-gray">{{ channel.description }}</p>
+
+            <ul class="mt-6 space-y-3">
+                @for (method of channel.methods; track method.href) {
+                <li>
+                    <a [href]="method.href" [attr.target]="method.external ? '_blank' : null"
+                        [attr.rel]="method.external ? 'noopener noreferrer' : null"
+                        class="group/link flex items-center gap-4 rounded-2xl bg-guerrini-gray-light px-4 py-3.5 ring-1 ring-guerrini-black/5 transition-all duration-200 hover:bg-guerrini-black hover:ring-guerrini-black">
+                        <span
+                            class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-white text-guerrini-red shadow-sm transition-colors group-hover/link:bg-guerrini-red group-hover/link:text-white">
+                            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="1.75" aria-hidden="true">
+                                @switch (method.type) {
+                                @case ('phone') {
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                }
+                                @case ('email') {
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                }
+                                @case ('whatsapp') {
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                                }
+                                }
+                            </svg>
+                        </span>
+                        <span class="min-w-0 flex-1">
+                            <span
+                                class="block text-[11px] font-bold uppercase tracking-wider text-guerrini-gray transition-colors group-hover/link:text-white/60">
+                                {{ method.label }}
+                            </span>
+                            <span
+                                class="block truncate text-sm font-semibold text-guerrini-black transition-colors group-hover/link:text-white">
+                                {{ method.value }}
+                            </span>
+                        </span>
+                        <svg class="size-4 shrink-0 text-guerrini-gray transition-all group-hover/link:translate-x-0.5 group-hover/link:text-white"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </li>
+                }
+            </ul>
+
+            <span aria-hidden="true"
+                class="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-guerrini-red transition-transform duration-300 group-hover:scale-x-100"></span>
+        </article>
+        }
+    </div>
+</section>
+
+<!-- ===== Formulario ===== -->
+<section class="py-20 sm:py-28">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-3 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+        <div>
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-guerrini-red">Escribinos</span>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight text-guerrini-black sm:text-4xl">¿Preferís que te
+                contactemos?</h2>
+            <span aria-hidden="true" class="mt-4 block h-1 w-12 rounded-full bg-guerrini-red"></span>
+            <p class="mt-6 max-w-md leading-relaxed text-guerrini-gray">
+                Dejanos tu consulta y un asesor se comunica con vos. Si necesitás una respuesta rápida,
+                escribinos por WhatsApp.
+            </p>
+
+            <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+                class="mt-8 inline-flex items-center gap-3 rounded-xl bg-guerrini-black px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-guerrini-black/20 transition-all hover:-translate-y-0.5 hover:bg-guerrini-red hover:shadow-guerrini-red/30">
+                <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                </svg>
+                Escribinos por WhatsApp
+                <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+        </div>
+
+        <app-quote-form title="Dejanos tu consulta" subtitle="Completá tus datos y te respondemos a la brevedad."
+            (submitted)="onQuote($event)" />
+    </div>
+</section>

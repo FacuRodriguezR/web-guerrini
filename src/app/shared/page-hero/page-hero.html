@@ -1,21 +1,20 @@
 <!-- -mt-32 / pt-44: el fondo oscuro sube por detrás del header flotante -->
 <section class="relative -mt-32 overflow-hidden bg-guerrini-dark pb-20 pt-44 sm:pb-24">
     <div aria-hidden="true"
-        class="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-guerrini-red/15 blur-3xl">
-    </div>
+        class="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-accent/15 blur-3xl"></div>
 
     <div class="relative mx-auto max-w-5xl px-6">
         @if (eyebrow()) {
         <span
             class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 backdrop-blur">
-            <span class="size-1.5 rounded-full bg-guerrini-red"></span>
+            <span class="size-1.5 rounded-full bg-accent"></span>
             {{ eyebrow() }}
         </span>
         }
 
         @let parts = titleParts();
         <h1 class="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-            {{ parts[0] }}<span class="text-guerrini-red">{{ parts[1] }}</span>{{ parts[2] }}
+            {{ parts[0] }}<span class="text-accent">{{ parts[1] }}</span>{{ parts[2] }}
         </h1>
 
         <div class="mt-6 max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg">

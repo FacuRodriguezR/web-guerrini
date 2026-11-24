@@ -14,6 +14,11 @@
   --color-guerrini-gray-light: #f2f2f2;
   --color-guerrini-white: #ffffff;
 
+  /* Paleta AutoShop (página Minorista) */
+  --color-autoshop-orange: #ec6b1f;
+  --color-autoshop-orange-dark: #c9560f;
+  --color-autoshop-navy: #1e3a52;
+
   /* Cinta de marcas */
   --animate-marquee: marquee 40s linear infinite;
 
@@ -25,6 +30,22 @@
       transform: translateX(-50%);
     }
   }
+}
+
+/*
+  Color de acento: lo usan los componentes compartidos (page-hero, carousel-img,
+  quote-form, features-band) como bg-accent, text-accent, bg-accent/15, etc.
+  Por defecto es el rojo Guerrini; una página lo cambia en su host:
+  host: { class: '[--accent:var(--color-autoshop-orange)] [--accent-dark:var(--color-autoshop-orange-dark)]' }
+*/
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+}
+
+:root {
+  --accent: var(--color-guerrini-red);
+  --accent-dark: var(--color-guerrini-red-dark);
 }
 
 /*
